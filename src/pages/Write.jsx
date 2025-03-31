@@ -9,13 +9,16 @@ function Write() {
     content: "",
   });
 
-  const [diaryList, setDiaryList] = useState([]);
+  const [diaryList, setDiaryList] = useState(st.loadDiary());
+
+  useEffect(() => {
+    st.saveDiary(diaryList);
+  }, [diaryList]);
 
   function submitFunc(e) {
     e.preventDefault();
     setDiaryList([...diaryList, diary]);
     setDiary({ title: "", content: "" });
-    st.saveDiary(diaryList);
   }
 
   function onChangeEvent(target, e) {

@@ -21,12 +21,12 @@ export default Home;
 function DiaryComponents({ gets }) {
   const dies = gets();
   return dies.map((element, index) => (
-    <>
+    <div key={index}>
       <div>{index + 1} 번째 </div>
       <div>{element.title}</div>
       <div>{element.content}</div>
       <br></br>
-    </>
+    </div>
   ));
 }
 
