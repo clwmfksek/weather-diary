@@ -2,13 +2,17 @@ import useWeather from "../hooks/useWeather";
 import styled from "styled-components";
 import spinner from "../assets/spinner.gif";
 import { useNavigate } from "react-router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function Loading() {
-  const [info, setInfo] = useState(useWeather());
+  const weatherData = useWeather().weather;
   const navigate = useNavigate();
-  console.log(info);
-  navigate("/", { state: info });
+  useEffect(() => {
+    if (weatherData !== "") {
+      navigate("/home", { state: { weatherData } });
+      console.log(weatherData);
+    }
+  }, [weatherData, navigate]);
 
   return (
     <Background>

@@ -75,7 +75,7 @@ function WriteDiary({ onChangeEvent, submitFunc, getValues }) {
 
 function Move() {
   const navigate = useNavigate();
-  return <button onClick={() => navigate("/")}>이동</button>;
+  return <button onClick={() => navigate("/home")}>이동</button>;
 }
 
 const Container = styled.div`

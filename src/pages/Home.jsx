@@ -8,14 +8,14 @@ import { useLocation } from "react-router";
 function Home() {
   const [diaryList, setDiaryList] = useState([]);
   const location = useLocation();
-  const { info } = location.state || {};
+  const { weatherData } = location.state || {};
   useEffect(() => {
     setDiaryList(st.loadDiary());
   }, []);
   return (
     <>
       <div>📘 일기 리스트 페이지입니다</div>
-      <div>현재 온도 : {info}</div>
+      <div>현재 온도 : {weatherData}</div>
       <Move />
       <DiaryComponents gets={diaryList} setDiaryList={setDiaryList} />
     </>
