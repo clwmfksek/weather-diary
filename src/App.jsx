@@ -4,6 +4,7 @@ import GlobalStyle from "./styles/GlobalStyle";
 import Home from "./pages/Home";
 import Write from "./pages/Write";
 import Edit from "./pages/Edit";
+import Loading from "./pages/Loading";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/write" element={<Write />} />
         <Route path="/edit" element={<Edit />} />
+        <Route path="/loading" element={<Loading />} />
       </Routes>
     </BrowserRouter>
   );

@@ -6,7 +6,6 @@ import styled from "styled-components";
 export default function Edit() {
   const location = useLocation();
   let { index } = location.state || {};
-  index -= 1;
   const [diary, setDiary] = useState(st.loadDiary()[index]);
   const navigate = useNavigate();
 

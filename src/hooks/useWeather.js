@@ -6,7 +6,7 @@ function useWeather() {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(async (pos) => {
       const { latitude, longitude } = pos.coords;
-      const apiKey = "YOUR_API_KEY";
+      const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
       const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
       const res = await fetch(url);
       const data = await res.json();
@@ -14,7 +14,7 @@ function useWeather() {
     });
   }, []);
 
-  return weather;
+  return { weather };
 }
 
 export default useWeather;

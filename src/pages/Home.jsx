@@ -2,19 +2,21 @@ import React, { useEffect, useState } from "react";
 import * as st from "../utils/storage";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
+import useWeather from "../hooks/useWeather";
+import { useLocation } from "react-router";
 
 function Home() {
   const [diaryList, setDiaryList] = useState([]);
-
+  const location = useLocation();
+  const { info } = location.state || {};
   useEffect(() => {
     setDiaryList(st.loadDiary());
   }, []);
-
   return (
     <>
       <div>📘 일기 리스트 페이지입니다</div>
+      <div>현재 온도 : {info}</div>
       <Move />
-      {/* <EditP idx={idx} setIdx={setIdx} diaryList={diaryList} /> */}
       <DiaryComponents gets={diaryList} setDiaryList={setDiaryList} />
     </>
   );
@@ -22,22 +24,6 @@ function Home() {
 
 export default Home;
 
-// function EditP({ idx, setIdx, diaryList }) {
-//   function onChangeFunc(e) {
-//     e.preventDefault();
-//     setIdx(e.target.value);
-//   }
-//   return (
-//     <>
-//       <input
-//         placeholder="인덱스를 입력하세요!"
-//         onChange={onChangeFunc}
-//         value={idx}
-//       />
-//       <EditMove index={idx} />
-//     </>
-//   );
-// }
 function DiaryComponents({ gets, setDiaryList }) {
   const dies = gets;
   return dies.map((element, index) => (
