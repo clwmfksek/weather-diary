@@ -1,6 +1,6 @@
 import React from "react";
 
-function DiaryCard({ date, content }) {
+function DiaryCard({ date, title, content }) {
   return (
     <div
       style={{
@@ -12,6 +12,7 @@ function DiaryCard({ date, content }) {
       <p>
         <strong>{date}</strong>
       </p>
+      <p>{title}</p>
       <p>{content}</p>
     </div>
   );

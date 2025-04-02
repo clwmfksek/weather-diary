@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import styled from "styled-components";
 import useWeather from "../hooks/useWeather";
 import { useLocation } from "react-router";
+import DiaryCard from "../components/DiaryCard";
 
 function Home() {
   const [diaryList, setDiaryList] = useState([]);
@@ -26,13 +27,20 @@ export default Home;
 
 function DiaryComponents({ gets, setDiaryList }) {
   const dies = gets;
+  const date = new Date();
   return dies.map((element, index) => (
     <TopContainer key={index}>
-      <DiaryContainer>
-        <div>{index + 1}번째 글</div>
-        <div>제목 : {element.title}</div>
-        <div>내용 : {element.content}</div>
-      </DiaryContainer>
+      <DiaryCard
+        date={
+          date.getFullYear() +
+          "-" +
+          (date.getMonth() + 1) +
+          "-" +
+          date.getDate()
+        }
+        title={element.title}
+        content={element.content}
+      />
       <EDContainer>
         <EditMove index={index} />
         <DeleteMove index={index} setDiaryList={setDiaryList} />

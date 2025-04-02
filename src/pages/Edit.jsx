@@ -14,7 +14,7 @@ export default function Edit() {
     let temp = st.loadDiary();
     temp[index] = diary;
     st.saveDiary(temp);
-    navigate("/");
+    navigate("/home");
   }
 
   function onChangeEvent(target, e) {
