@@ -8,8 +8,7 @@ import DiaryCard from "../components/DiaryCard";
 
 function Home() {
   const [diaryList, setDiaryList] = useState([]);
-  const location = useLocation();
-  const { weatherData } = location.state || {};
+  const weatherData = st.loadTemp();
   useEffect(() => {
     setDiaryList(st.loadDiary());
   }, []);

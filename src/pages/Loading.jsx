@@ -3,13 +3,15 @@ import styled from "styled-components";
 import spinner from "../assets/spinner.gif";
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
+import * as st from "../utils/storage";
 
 export default function Loading() {
   const weatherData = useWeather().weather;
   const navigate = useNavigate();
   useEffect(() => {
     if (weatherData !== "") {
-      navigate("/home", { state: { weatherData } });
+      st.saveTemp(weatherData);
+      navigate("/home");
     }
   }, [weatherData, navigate]);
 
