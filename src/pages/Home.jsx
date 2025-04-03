@@ -2,13 +2,11 @@ import React, { useEffect, useState } from "react";
 import * as st from "../utils/storage";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
-import useWeather from "../hooks/useWeather";
-import { useLocation } from "react-router";
 import DiaryCard from "../components/DiaryCard";
 
 function Home() {
   const [diaryList, setDiaryList] = useState([]);
-  const weatherData = st.loadTemp();
+  const [weatherData, setWeatherData] = useState(st.loadTemp());
   useEffect(() => {
     setDiaryList(st.loadDiary());
   }, []);
