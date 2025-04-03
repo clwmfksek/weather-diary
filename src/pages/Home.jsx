@@ -56,7 +56,7 @@ function Move() {
 function EditMove({ index }) {
   const navigate = useNavigate();
   const handleNavigate = () => {
-    navigate(`/edit`, { state: { index } });
+    navigate(`/edit/${index}`);
   };
 
   return <EDButton onClick={handleNavigate}>수정</EDButton>;

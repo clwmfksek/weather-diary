@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import * as st from "../utils/storage";
 import styled from "styled-components";
 
 export default function Edit() {
-  const location = useLocation();
-  let { index } = location.state || {};
+  const params = useParams();
+  let { idx: index } = params;
   const [diary, setDiary] = useState(st.loadDiary()[index]);
   const navigate = useNavigate();
 
