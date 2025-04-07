@@ -67,7 +67,7 @@ function WriteDiary({ onChangeEvent, submitFunc, getValues }) {
           onChange={(event) => onChangeEvent("content", event)}
           value={getValues("content")}
         />
-        <button type="submit">제출</button>
+        <button type="submit">일기 작성하기</button>
       </FormContainer>
     </>
   );
@@ -75,7 +75,7 @@ function WriteDiary({ onChangeEvent, submitFunc, getValues }) {
 
 function Move() {
   const navigate = useNavigate();
-  return <button onClick={() => navigate("/home")}>이동</button>;
+  return <button onClick={() => navigate("/home")}>홈으로 가기</button>;
 }
 
 const Container = styled.div`

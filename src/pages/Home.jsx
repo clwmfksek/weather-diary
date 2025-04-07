@@ -48,7 +48,7 @@ function DiaryComponents({ gets, setDiaryList }) {
 
 function Move() {
   const navigate = useNavigate();
-  return <button onClick={() => navigate("/write")}>이동</button>;
+  return <button onClick={() => navigate("/write")}>일기 쓰기</button>;
 }
 
 function EditMove({ index }) {
